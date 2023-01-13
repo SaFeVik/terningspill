@@ -26,12 +26,11 @@ async function kast(){
         // Ikke mulig å kaste imens
         kastMulig = false
         // Rullerer gjennom terninger imens kast
-        for(i=Math.floor(Math.random()*450);i<500;i=i+50){
+        for(i=0;i<200;i=i+50){
             kaster()
             terningEl.classList.toggle('rist')
             await sleep(i)
         }
-        terningEl.classList.remove('rist')
         // Hvis triller 1 eller 6 står det "neste person"
         if(terningNr == 0 || terningNr == 5){
             console.log('6 eller 1')
