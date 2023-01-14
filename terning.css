@@ -12,21 +12,49 @@ h1{
 }
 h2{
     color: rgb(64, 255, 0);
+    text-align: center;
+}
+#com{
+    padding-inline: 20px;
+}
+#regler{
+    color: rgb(255, 250, 155);
+    margin-top: 20px;
+    border-bottom: 2px solid;
+    cursor: pointer;
+}
+#reglerTxt{
+    padding: 10px;
+    background: white;
+    position: absolute;
+    margin-bottom: 860px;
+    transition: 0.5s;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+#reglerTxt.vis{
+    transform: translatey(370px);
 }
 
 body{
+    position: relative;
     margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(57, 114, 137);
+    background-size: 100% 200%;
+    width: 100%;
 }
 #terning{
+    cursor: pointer;
     object-fit: cover;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     transform: translateX(-2px);
+    margin-block: 20px;
 }
 #terning.rist{
     transform: rotate(3deg)translatex(5px);

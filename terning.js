@@ -4,13 +4,29 @@ let straffeBtn = document.querySelector('#straffekast')
 let timerBtn = document.querySelector('#timer')
 let comEl = document.querySelector('#com')
 let bodyEl = document.getElementsByTagName('body')[0]
+let stressAu = document.querySelector('#stress')
+let duckAu = document.querySelector('#duck')
+let reglerBtn = document.querySelector('#regler')
+let reglerEl = document.querySelector('#reglerTxt')
+let carhornAu = document.querySelector('#carhorn')
+
+reglerBtn.onclick = function(){
+    console.log("regler klikk")
+    reglerEl.classList.toggle('vis')
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 // Liste over terningbildene
-let terninger = ['en', 'to', 'tre', 'fire', 'fem', 'seks']
-let terningNr
+let terninger = ['en2', 'to2', 'tre2', 'fire2', 'fem2', 'seks2']
+
+// Forskjellige situasjoner
+let situasjonerArr = ["Elias tok deg i bakken! vent 3 sek", "Johannes putta deg i fryseren! vent 5 sek", "Andreas viser deg en baddie fra insta! Vent 2 sek", "Terningen falt under bordet! vent 3 sek", "Elias er ikke enig i reglene! Vent 1 sek", "Filip snakker om IKEA! Vent 2 sek", "Elias dro og spilte piano! Vent 2 sek", "Thorvald tente på skoene dine! Vent 6 sek", "Felix sa noe morsomt og du fikk latterkrampe! Vent 1 sek", "Johannes rapper en hel sang! Vent 5 sekunder", "Felix trykker på HDMI out! Dere er DOOMED. Vent 8 sekunder"]
+let situasjonTid = [3, 5, 2, 3, 1, 2, 2, 6, 1, 5, 8]
+
+let terningNr = Math.floor(Math.random()*6)
+terningEl.src = `./terninger/${terninger[terningNr]}.png`
 // Kaster terningen
 function kaster(){
     terningNr = Math.floor(Math.random()*6)
@@ -26,10 +42,22 @@ async function kast(){
         // Ikke mulig å kaste imens
         kastMulig = false
         // Rullerer gjennom terninger imens kast
-        for(i=0;i<200;i=i+50){
+        for(i=50;i<250;i=i+50){
             kaster()
             terningEl.classList.toggle('rist')
             await sleep(i)
+        }
+
+        // Bestemmer et tilfeldig tall
+        let situasjon = Math.floor(Math.random()*135)
+        // Hvis tilfeldig tall er mindre enn antall situasjoner, situasjonen popper opp
+        if (situasjon < 11 && timerOn == true){
+            carhornAu.play()
+            comEl.innerHTML = situasjonerArr[situasjon]
+            kastMulig = false
+            console.log(situasjonTid[situasjon])
+            await sleep(situasjonTid[situasjon]*1000)
+            kastMulig = true
         }
         // Hvis triller 1 eller 6 står det "neste person"
         if(terningNr == 0 || terningNr == 5){
@@ -46,6 +74,8 @@ let straffesum
 // Timer er ikke på
 let timerOn = false
 async function timer(){
+    stressAu.currentTime = 0
+    stressAu.play()
     straffesum = 0
     // Ikke mulig å skru på timer
     timerBtn.removeEventListener('click', timer)
@@ -72,14 +102,16 @@ async function timer(){
     // Lov å bruke redemption
     redemptionBtn.style.display = 'block'
     timerBtn.style.display = 'none'
+    stressAu.pause()
+    duckAu.play()
 }
 // Ikke lov med redemption fra før av
 async function redemption(){
+        duckAu.pause()
         timerOn = true
         bodyEl.style.backgroundColor = "rgb(57, 137, 90)"
         kast()
-        await sleep(1850)
-        console.log("klar")
+        await sleep(550)
         console.log(`TerningNr = ${terningNr}`)
         if (terningNr > 0 && terningNr < 5){
             comEl.innerHTML = `Du tapte`
@@ -97,7 +129,7 @@ async function straffekast(){
     timerOn = true
     straffeOn = true
     kast()
-    await sleep(3000)
+    await sleep(550)
     straffesum += terningNr+1
     if (terningNr == 5){
         comEl.innerHTML = `Kast igjen`

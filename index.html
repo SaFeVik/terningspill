@@ -7,16 +7,34 @@
     <title>Terning</title>
 
     <link rel="stylesheet" href="./terning.css">
+
+    <script src="."></script>
 </head>
 <body>
     <h1>Terningspillet</h1>
     <h2 id="com">Galeste spillet</h2>
-    <img src="./terninger/en.png" alt="terning" id="terning">
+    <img src="" alt="terning" id="terning">
     <div class="knapper">
         <button id="redemption">Redemption</button>
         <button id="timer">start timer</button>
         <button id="straffekast">Straffekast</button>
     </div>
+    <h3 id="regler">Regler</h3>
+    <p id="reglerTxt">
+        1. Start timer (Tilfeldig fra 1sek til 1min) <br>
+        2. Trill til det blir 1 eller 6 <br>
+        3. 1 eller 6? Send til person til venstre <br>
+        4. Timer ute? Siste sjanse! (redemption) <br>
+        5. 1 eller 6? Send til neste <br>
+        6. Ikke 1 eller 6? Straffekast <br>
+        7. 1? Du skal downe <br>
+        8. 6? Kast igjen og det legges til ekstra <br>
+        9. Ikke 1 eller 6? Ta det terningen viser
+    </p>
+
+    <audio src="./terninger/stressmusikk.mp3" id="stress"></audio>
+    <audio src="./terninger/duck.mp3" loop id="duck"></audio>
+    <audio src="./terninger/carhorn.mp3" id="carhorn"></audio>
 <script src="terning.js"></script>
 </body>
 </html>
