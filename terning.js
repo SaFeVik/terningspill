@@ -32,20 +32,20 @@ tempoEls[1].classList.add('checked')
 
 lyderEls[0].classList.add('checked')
 lyderEls[1].classList.remove('checked')
+
 lyderEls[0].onclick = function(){
+    bodyEl.classList.remove('image')
     lyderEls[0].classList.add('checked')
     lyderEls[1].classList.remove('checked')
     for(let i=0; i<audioEls.length; i++){
-        console.log(`${audioEls[i].src} = ./terninger/lyder/${vanligArr[i]}`)
         audioEls[i].src = `./terninger/lyder/${vanligArr[i]}`
     }
 }
 lyderEls[1].onclick = function(){
-    console.log("sigma aktivert")
+    bodyEl.classList.add('image')
     lyderEls[1].classList.add('checked')
     lyderEls[0].classList.remove('checked')
     for(let i=0; i<audioEls.length; i++){
-        console.log(`${audioEls[i].src} = ./terninger/lyder/${sigmaArr[i]}`)
         audioEls[i].src = `./terninger/lyder/${sigmaArr[i]}`
     }
 }
@@ -78,7 +78,7 @@ terningEl.src = `./terninger/${terninger[terningNr]}.png`
 
 async function situasjon(){
     // Bestemmer et tilfeldig tall
-    let situasjonNr = Math.floor(Math.random()*(situasjonerArr.length/* *10 */))
+    let situasjonNr = Math.floor(Math.random()*(situasjonerArr.length*10))
     // Hvis tilfeldig tall er mindre enn antall situasjoner, situasjonen popper opp
     if (situasjonNr < situasjonerArr.length){
         situasjonAu.play()
@@ -137,7 +137,7 @@ async function timer(){
     if(tempo == 0){
         tid = Math.floor(Math.random()*30)+30
     }else if(tempo == 1){
-        tid = /* Math.floor(Math.random()*30)+15 */10
+        tid = Math.floor(Math.random()*30)+15
     }else if(tempo == 2){
         tid = Math.floor(Math.random()*30)
     }

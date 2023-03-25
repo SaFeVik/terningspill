@@ -12,6 +12,7 @@
 
 h1{
     color: rgb(255, 255, 255);
+    margin-top: 30px;
 }
 h2{
     color: rgb(64, 255, 0);
@@ -33,7 +34,7 @@ h2{
     line-height: 30px;
     border-radius: 5px;
     border: 2px solid black;
-    transform: translatey(-440px);
+    transform: translatey(-390px);
 }
 /* Fargekode til reglene */
 #reglerTxt p{
@@ -53,19 +54,27 @@ h2{
 }
 
 #reglerTxt.vis{
-    transform: translatey(-40px);
+    transform: translatey(0px);
 }
 
 body{
     position: relative;
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(57, 114, 137);
-    background-size: 100% 200%;
     width: 100%;
+}
+body.image::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background: url('./terninger/sigma.png') center no-repeat;
+    opacity: 0.2;
+    z-index: -1;
 }
 main{
     display: flex;
