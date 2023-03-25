@@ -1,5 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
-
+@font-face {
+    font-family: 'minecraft1';
+    src: url(Minecraft.ttf);
+}
 *{
     margin: 0;
     padding: 0;
@@ -19,7 +22,6 @@ h2{
 }
 #regler{
     color: rgb(255, 250, 155);
-    margin-top: 20px;
     border-bottom: 2px solid;
     cursor: pointer;
 }
@@ -27,14 +29,31 @@ h2{
     padding: 10px;
     background: white;
     position: absolute;
-    margin-bottom: 860px;
     transition: 0.5s;
     line-height: 30px;
     border-radius: 5px;
     border: 2px solid black;
+    transform: translatey(-440px);
 }
+/* Fargekode til reglene */
+#reglerTxt p{
+    font-family: 'minecraft1', sans-serif;
+}
+#reglerTxt p:nth-child(1){
+    color: rgb(57, 114, 137);
+}
+#reglerTxt p:nth-child(n+2):nth-child(-n+3) {
+    color: rgb(175, 75, 75);
+}
+#reglerTxt p:nth-child(n+4):nth-child(-n+5) {
+    color: rgb(57, 137, 90);
+}
+#reglerTxt p:nth-child(n+6):nth-child(-n+9) {
+    color: rgb(187, 137, 49);
+}
+
 #reglerTxt.vis{
-    transform: translatey(370px);
+    transform: translatey(-40px);
 }
 
 body{
@@ -48,26 +67,30 @@ body{
     background-size: 100% 200%;
     width: 100%;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 #terning{
     cursor: pointer;
     object-fit: cover;
     width: 200px;
     height: 200px;
     transform: translateX(-2px);
-    margin-block: 20px;
+    transition: transform .05s;
 }
 #terning.rist{
     transform: rotate(3deg)translatex(5px);
+}
+#terning.disabled{
+    cursor: not-allowed;
 }
 .knapper button{
     width: 200px;
     padding: 20px 0;
     border-radius: 10px;
-    cursor: pointer;
-}
-.knapper{
-    display: flex;
-    gap: 40px;
 }
 #redemption{
     display: none;
@@ -78,4 +101,32 @@ body{
 button{
     font-size: 20px;
     color: black;
+    cursor: pointer;
+}
+
+.tempo button{
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    margin-inline: 5px;
+    font-family: 'minecraft1', sans-serif;
+    border: 1px solid black;
+}
+.tempo button.checked{
+    background-color: rgb(54, 152, 62);
+    color: rgb(255, 255, 255);
+}
+
+.lyder button{
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    margin-inline: 5px;
+    font-family: 'minecraft1', sans-serif;
+    border: 1px solid black;
+    background-color: white;
+}
+.lyder button.checked{
+    background-color: rgb(119, 110, 255);
+    color: white;
 }

@@ -11,30 +11,46 @@
     <script src="."></script>
 </head>
 <body>
-    <h1>Terningspillet</h1>
-    <h2 id="com">Galeste spillet</h2>
-    <img src="" alt="terning" id="terning">
-    <div class="knapper">
-        <button id="redemption">Redemption</button>
-        <button id="timer">start timer</button>
-        <button id="straffekast">Straffekast</button>
-    </div>
-    <h3 id="regler">Regler</h3>
-    <p id="reglerTxt">
-        1. Start timer (Tilfeldig fra 1sek til 1min) <br>
-        2. Trill til det blir 1 eller 6 <br>
-        3. 1 eller 6? Send til person til venstre <br>
-        4. Timer ute? Siste sjanse! (redemption) <br>
-        5. 1 eller 6? Send til neste <br>
-        6. Ikke 1 eller 6? Straffekast <br>
-        7. 1? Du skal downe <br>
-        8. 6? Kast igjen og det legges til ekstra <br>
-        9. Ikke 1 eller 6? Ta det terningen viser
-    </p>
+    <main>
+        <h1>Terningspillet</h1>
+        <h2 id="com">Galeste spillet</h2>
+        <img src="" alt="terning" id="terning">
+        <div class="knapper">
+            <button id="redemption">Redemption</button>
+            <button id="timer">start timer</button>
+            <button id="straffekast">Straffekast</button>
+        </div>
+        <h3 id="regler">Regler</h3>
+        <div class="tempo">
+            <button id="tregt">Tregt</button>
+            <button id="medium">Middels</button>
+            <button id="kjapt">Kjapt</button>
+        </div>
+        <div id="reglerTxt">
+            <p>1. Start timer (Tilfeldig tid)</p>
+            <p>2. Trill til det blir 1 eller 6</p>
+            <p>3. 1 eller 6? Send til person til venstre</p>
+            <p>4. Timer ute? Siste sjanse! (redemption)</p>
+            <p>5. 1 eller 6? Send til neste</p>
+            <p>6. Ikke 1 eller 6? Straffekast</p>
+            <p>7. 1? Du skal downe</p>
+            <p>8. 6? Kast igjen og det legges til ekstra</p>
+            <p>9. Ikke 1 eller 6? Ta det terningen viser</p>
+            <p>---</p>
+            <p>Tregt: 30-60s | Middels: 15-45s | Kjapt: 0-30s</p>
+        </div>
+        <div class="lyder">
+            <button id="vanlig">Vanlig lyd</button>
+            <button id="sigma">Sigma lyd</button>
+        </div>
 
-    <audio src="./terninger/stressmusikk.mp3" id="stress"></audio>
-    <audio src="./terninger/duck.mp3" loop id="duck"></audio>
-    <audio src="./terninger/carhorn.mp3" id="carhorn"></audio>
+        <div class="audios">
+            <audio src="./terninger/lyder/stressmusikk.mp3" id="stressAu"></audio>
+            <audio src="./terninger/lyder/duck.mp3" loop id="ferdigAu"></audio>
+            <audio src="./terninger/lyder/carhorn.mp3" id="situasjonAu"></audio>
+        </div>
+    </main>
 <script src="terning.js"></script>
+
 </body>
 </html>

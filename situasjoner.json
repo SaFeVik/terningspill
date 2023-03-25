@@ -1,0 +1,46 @@
+[
+    {
+        "situasjon": "Elias tok deg i bakken! vent 3 sek",
+        "tid": 3
+    },    
+    {
+        "situasjon": "Johannes putta deg i fryseren! vent 5 sek",
+        "tid": 5
+    },    
+    {
+        "situasjon": "Andreas viser deg en baddie fra insta! Vent 2 sek",
+        "tid": 2
+    },    
+    {
+        "situasjon": "Terningen falt under bordet! vent 3 sek",
+        "tid": 3
+    },    
+    {
+        "situasjon": "Elias er ikke enig i reglene! Vent 1 sek",
+        "tid": 1
+    },    
+    {
+        "situasjon": "Filip snakker om IKEA! Vent 2 sek",
+        "tid": 2
+    },    
+    {
+        "situasjon": "Elias dro og spilte piano! Vent 2 sek",
+        "tid": 2
+    },    
+    {
+        "situasjon": "Thorvald tente på skoene dine! Vent 6 sek",
+        "tid": 6
+    },    
+    {
+        "situasjon": "Felix sa noe morsomt så du fikk latterkrampe! Vent 1 sek",
+        "tid": 1
+    },    
+    {
+        "situasjon": "Johannes rapper en hel sang! Vent 5 sekunder",
+        "tid": 5
+    },    
+    {
+        "situasjon": "Felix trykka på HDMI out! Dere er DOOMED. Vent 8 sekunder",
+        "tid": 8
+    }
+]
