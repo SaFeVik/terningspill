@@ -17,23 +17,32 @@ let audioEls = document.querySelectorAll('.audios audio')
 let vanligArr = ["stressmusikk.mp3", "duck.mp3", "carhorn.mp3"]
 let sigmaArr = ["heartSong.mp3", "sigmaSound.mp3", "tiger.mp3"]
 
-let tempo = 1
-tempoEls[1].classList.add('checked')
+if(!localStorage.tempo){
+    localStorage.tempo = 1
+}
+if(!localStorage.modus){
+    localStorage.modus = 0
+}
+if(localStorage.modus == 0){
+    vanligModus()
+}else if(localStorage.modus == 1){
+    sigmaModus()
+}
+
+tempoEls[localStorage.tempo].classList.add('checked')
 for(let i=0; i<tempoEls.length; i++){
     tempoEls[i].addEventListener('click', function(){
         for(let j=0; j<tempoEls.length; j++){
             tempoEls[j].classList.remove('checked')
         }
         tempoEls[i].classList.add('checked')
-        tempo = i
+        localStorage.tempo = i
     })
 }
-tempoEls[1].classList.add('checked')
 
-lyderEls[0].classList.add('checked')
-lyderEls[1].classList.remove('checked')
-
-lyderEls[0].onclick = function(){
+lyderEls[0].onclick = vanligModus
+function vanligModus(){
+    localStorage.modus = 0
     bodyEl.classList.remove('image')
     lyderEls[0].classList.add('checked')
     lyderEls[1].classList.remove('checked')
@@ -41,7 +50,9 @@ lyderEls[0].onclick = function(){
         audioEls[i].src = `./terninger/lyder/${vanligArr[i]}`
     }
 }
-lyderEls[1].onclick = function(){
+lyderEls[1].onclick = sigmaModus
+function sigmaModus(){
+    localStorage.modus = 1
     bodyEl.classList.add('image')
     lyderEls[1].classList.add('checked')
     lyderEls[0].classList.remove('checked')
@@ -56,7 +67,6 @@ timerBtn.addEventListener('click', timer)
 straffeBtn.addEventListener('click', straffekast)
 
 reglerBtn.onclick = function(){
-    console.log("regler klikk")
     reglerEl.classList.toggle('vis')
 }
 
@@ -134,11 +144,11 @@ async function timer(){
     comEl.innerHTML = `Kast 6 eller 1`
     // Setter tilfeldig tid
     let tid
-    if(tempo == 0){
+    if(localStorage.tempo == 0){
         tid = Math.floor(Math.random()*30)+30
-    }else if(tempo == 1){
+    }else if(localStorage.tempo == 1){
         tid = Math.floor(Math.random()*30)+15
-    }else if(tempo == 2){
+    }else if(localStorage.tempo == 2){
         tid = Math.floor(Math.random()*30)
     }
     console.log(tid)
@@ -157,6 +167,7 @@ async function timer(){
     redemptionBtn.style.display = 'block'
     timerBtn.style.display = 'none'
     stressAu.pause()
+    ferdigAu.currentTime = 0
     ferdigAu.play()
     canRoll = false
 }
