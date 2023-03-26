@@ -90,6 +90,7 @@ main{
     height: 200px;
     transform: translateX(-2px);
     transition: transform .05s;
+    user-select: none;
 }
 #terning.rist{
     transform: rotate(3deg)translatex(5px);
