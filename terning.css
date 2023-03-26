@@ -65,6 +65,7 @@ body{
     flex-direction: column;
     background-color: rgb(57, 114, 137);
     width: 100%;
+    touch-action: manipulation;
 }
 body.image::before{
     content: "";
