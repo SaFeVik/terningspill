@@ -138,7 +138,8 @@ async function timer(){
     straffesum = 0
     // Ikke mulig å skru på timer
     timerBtn.removeEventListener('click', timer)
-    timerBtn.innerHTML = "kast!"
+    timerBtn.innerHTML = "Heia!"
+    timerBtn.style.opacity = "0.5"
     // Mulig å kaste
     bodyEl.style.backgroundColor = "rgb(175, 75, 75)"
     comEl.innerHTML = `Kast 6 eller 1`
@@ -162,6 +163,8 @@ async function timer(){
 
     comEl.innerHTML = `Tiden er ute!`
     timerBtn.innerHTML = "start timer"
+    timerBtn.style.opacity = "1"
+    terningEl.style.opacity = "0.5"
     timerBtn.addEventListener('click', timer)
     // Lov å bruke redemption
     redemptionBtn.style.display = 'block'
@@ -173,23 +176,27 @@ async function timer(){
 }
 // Redemption kast
 async function redemption(){
-        ferdigAu.pause()
-        await kaster()
-        console.log(`TerningNr = ${terningNr}`)
-        if (terningNr > 0 && terningNr < 5){
-            comEl.innerHTML = `Du tapte!`
-            straffeBtn.style.display = 'block'
-            redemptionBtn.style.display = 'none'
-            bodyEl.style.backgroundColor = "rgb(187, 137, 49)"
-        }
+    terningEl.style.opacity = "1"
+    ferdigAu.pause()
+    await kaster()
+    console.log(`TerningNr = ${terningNr}`)
+    if(terningNr > 0 && terningNr < 5){
+        comEl.innerHTML = `Du tapte!`
+        straffeBtn.style.display = 'block'
+        redemptionBtn.style.display = 'none'
+        bodyEl.style.backgroundColor = "rgb(187, 137, 49)"
+    }
+    terningEl.style.opacity = "0.5"
 }
 let straffesum
 async function straffekast(){
+    terningEl.style.opacity = "1"
     console.log(`straffesum = ${straffesum}`)
     await kaster()
     straffesum += terningNr+1
-    if (terningNr == 5){
+    if(terningNr == 5){
         comEl.innerHTML = `Kast igjen!`
+        terningEl.style.opacity = "0.5"
     }
     else if (terningNr == 0){
         comEl.innerHTML = `Du skal downe!`
@@ -202,3 +209,4 @@ async function straffekast(){
         timerBtn.style.display = 'block'
     }
 }
+
